@@ -2,10 +2,10 @@
 An renew script for librarymanagementcloud's prism online library web app
 
 ## Usage
-Download the script RenewBooks.sh and change the `PRISM_URL`, `LIB_PIN`, and `LIB_CARD` variables
+Download the script RenewBooks.sh and change the `PRISM_URL`, `LIB_PIN`, and `LIB_CARD` variables. Then run the script (`bash RenewScript.sh`)
 
 ## Extra Info
-This is tested working as of 26th June 2022, but could break in the future to do web scraping needed to get info without an api
+This is tested working as of 26th July 2022, but could break in the future to do web scraping needed to get info without an api
 
 I do not know if all prism instances are the same, but this works on mine
 
