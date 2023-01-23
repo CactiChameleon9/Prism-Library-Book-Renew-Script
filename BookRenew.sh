@@ -23,7 +23,10 @@ RENEW_DATA=$(echo $BOOK_IDS | sed -n 's/ /\&loan_ids%5B%5D=/g;p' | sed -n 's/^/l
 sleep 1
 
 echo 'Renewing the books'
-curl $PRISM_URL/account/loans -X POST -d "$RENEW_DATA" -b myLibraryCookies -silent
+RENEW_RETURN=$(curl $PRISM_URL/account/loans -X POST -d "$RENEW_DATA" -b myLibraryCookies -silent)
+RENEW_DATE=$(echo "$RENEW_RETURN" | grep -E '^\t\t<td class="accDue">.+ .+<\/td>' -m1 | sed -e 's/\t\t<td class="accDue">//' | sed -e 's/\W*<\/td>//')
 
 sleep 1
 echo Done!!
+
+echo "Your Books are due on $RENEW_DATE"
